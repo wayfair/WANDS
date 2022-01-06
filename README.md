@@ -3,7 +3,6 @@
 [![OSS Template Version](https://img.shields.io/badge/OSS%20Template-0.3.5-7f187f.svg)](https://github.com/wayfair/WANDS/CHANGELOG.md)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.0-4baaaa.svg)](CODE_OF_CONDUCT.md)
 
-
 ## About The Project
 
 WANDS is a Wayfair product search relevance dataset that is published as a companion to the a paper from ECIR 2022:
@@ -50,7 +49,7 @@ The data is stored in the ```dataset``` folder in three files:
    a. query_id - unique ID for each query  
    b. query - query string  
    c. query_class - category to which the query falls under  
-    
+
 3. label.csv - Stores annotated (product,relevance judgement) pairs, columns include  
    a. id - Unique ID for each annotation  
    b. query_id - ID of the query this annotation is for  
@@ -62,8 +61,8 @@ The data is stored in the ```dataset``` folder in three files:
 We have included a sample notebook ```read_dataset.ipynb``` to show you how you can read the data from the three CSV files easily.
 
 ### Annotation Guidelines
-We released annotation guidelines ```Product Search Relevance Annotation Guidelines.pdf``` as a supplement to the dataset. 
 
+We released annotation guidelines ```Product Search Relevance Annotation Guidelines.pdf``` as a supplement to the dataset.
 
 ## Roadmap
 

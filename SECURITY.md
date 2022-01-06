@@ -1,7 +1,7 @@
 # Security Policies and Procedures
 
 This document outlines security procedures and general policies for the
-`<project name>` project.
+`WANDS` project.
 
 - [Reporting a Bug](#reporting-a-bug)
 - [Disclosure Policy](#disclosure-policy)
@@ -9,9 +9,9 @@ This document outlines security procedures and general policies for the
 
 ## Reporting a Bug
 
-The `<project name>` team and community take all security bugs in
-`<project name>` seriously.  Thank you for improving the security of
-`<project name>`. We appreciate your efforts and responsible disclosure and
+The `WANDS` team and community take all security bugs in
+`WANDS` seriously.  Thank you for improving the security of
+`WANDS`. We appreciate your efforts and responsible disclosure and
 will make every effort to acknowledge your contributions.
 
 Report security bugs by emailing `OpenSource@wayfair.com`.

@@ -85,6 +85,7 @@ Project Link: [https://github.com/wayfair/WANDS](https://github.com/wayfair/WAND
 ## Citation
 
 Please cite this paper if you are building on top of or using this dataset:
+
 ```
 @InProceedings{wands,  
   title = {WANDS: Dataset for Product Search Relevance Assessment},  

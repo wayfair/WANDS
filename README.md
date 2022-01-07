@@ -1,11 +1,11 @@
 # WANDS - Wayfair ANnotation Dataset
 
-[![OSS Template Version](https://img.shields.io/badge/OSS%20Template-0.3.5-7f187f.svg)](https://github.com/wayfair/WANDS/CHANGELOG.md)
+[![OSS Template Version](https://img.shields.io/badge/OSS%20Template-0.3.5-7f187f.svg)](https://github.com/wayfair/WANDS/blob/main/CHANGELOG.md)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.0-4baaaa.svg)](CODE_OF_CONDUCT.md)
 
 ## About The Project
 
-WANDS is a Wayfair product search relevance dataset that is published as a companion to the a paper from ECIR 2022:
+WANDS is a Wayfair product search relevance dataset that is published as a companion to the paper from ECIR 2022:
 
 > WANDS: Dataset for Product Search Relevance Assessment  
 > Yan Chen, Shujian Liu, Zheng Liu, Weiyi Sun, Linas Baltrunas and Benjamin Schroeder
@@ -34,7 +34,7 @@ Clone the repo
 
 The data is stored in the ```dataset``` folder in three files:
 
-1. product.csv - Stores all candidate products, columns include:  
+1. ```product.csv``` - Stores all candidate products, columns include:  
    a. product_id - ID of a product  
    b. product_name - String of product name  
    c. product_class - Category which product falls under  
@@ -45,12 +45,12 @@ The data is stored in the ```dataset``` folder in three files:
    h. average_rating - Average rating the product received  
    i. review_count - Number of user reviews for product  
 
-2. query.csv - Stores search queries, columns include:  
+2. ```query.csv``` - Stores search queries, columns include:  
    a. query_id - unique ID for each query  
    b. query - query string  
    c. query_class - category to which the query falls under  
 
-3. label.csv - Stores annotated (product,relevance judgement) pairs, columns include  
+3. ```label.csv``` - Stores annotated (product,relevance judgement) pairs, columns include  
    a. id - Unique ID for each annotation  
    b. query_id - ID of the query this annotation is for  
    c. product_id - ID of the product this annotation applies to  
@@ -62,7 +62,7 @@ We have included a sample notebook ```read_dataset.ipynb``` to show you how you 
 
 ### Annotation Guidelines
 
-We released annotation guidelines ```Product Search Relevance Annotation Guidelines.pdf``` as a supplement to the dataset.
+We released [annotation guidelines](Product%20Search%20Relevance%20Annotation%20Guidelines.pdf) as a supplement to the dataset.
 
 ## Roadmap
 
@@ -85,11 +85,12 @@ Project Link: [https://github.com/wayfair/WANDS](https://github.com/wayfair/WAND
 ## Citation
 
 Please cite this paper if you are building on top of or using this dataset:
-
-@inproceedings{wands,  
-  title={WANDS: Dataset for Product Search Relevance Assessment},  
-  author={Chen, Yan and Liu, Shujian and Liu, Zheng and Sun, Weiyi and Baltrunas, Linas and Schroeder, Benjamin},  
-  booktitle={Proceedings of the 44th European Conference on Information Retrieval},  
-  year={2022},  
-  numpages={12}  
+```
+@InProceedings{wands,  
+  title = {WANDS: Dataset for Product Search Relevance Assessment},  
+  author = {Chen, Yan and Liu, Shujian and Liu, Zheng and Sun, Weiyi and Baltrunas, Linas and Schroeder, Benjamin},  
+  booktitle = {Proceedings of the 44th European Conference on Information Retrieval},  
+  year = {2022},  
+  numpages = {12}  
 }
+```

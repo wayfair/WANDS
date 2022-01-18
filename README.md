@@ -1,75 +1,72 @@
-# OSPO Project Template
+# WANDS - Wayfair ANnotation Dataset
 
-[![OSS Template Version](https://img.shields.io/badge/OSS%20Template-0.3.5-7f187f.svg)](https://github.com/wayfair-incubator/oss-template/blob/main/CHANGELOG.md)
+[![OSS Template Version](https://img.shields.io/badge/OSS%20Template-0.3.5-7f187f.svg)](https://github.com/wayfair/WANDS/blob/main/CHANGELOG.md)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.0-4baaaa.svg)](CODE_OF_CONDUCT.md)
-
-## Before You Start
-
-As much as possible, we have tried to provide enough tooling to get you up and running quickly and with a minimum of effort. This includes sane defaults for documentation; templates for bug reports, feature requests, and pull requests; and [GitHub Actions](https://github.com/features/actions) that will automatically manage stale issues and pull requests. This latter defaults to labeling issues and pull requests as stale after 60 days of inactivity, and closing them after 7 additional days of inactivity. These [defaults](.github/workflows/stale.yml) and more can be configured. For configuration options, please consult the documentation for the [stale action](https://github.com/actions/stale).
-
-In trying to keep this template as generic and reusable as possible, there are some things that were omitted out of necessity and others that need a little tweaking. Before you begin developing in earnest, there are a few changes that need to be made.
-
-- [ ] Select an appropriate license for your project. This can easily be achieved through the 'Add File' button on the GitHub UI, naming the file `LICENSE`, and selecting your desired license from the provided list.
-- [ ] Update the `<License name>` placeholder in this file to reflect the name of the license you selected above
-- [ ] Replace `[INSERT CONTACT METHOD]` in [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md) with a suitable communication channel
-- [ ] Change references to `org_name` to the name of the org your repo belongs to (eg. `wayfair-incubator`)
-  - [ ] In [`README.md`](README.md)
-  - [ ] In [`CONTRIBUTING.md`](CONTRIBUTING.md)
-- [ ] Change references to `repo_name` to the name of your new repo
-  - [ ] In [`README.md`](README.md)
-  - [ ] In [`CONTRIBUTING.md`](CONTRIBUTING.md)
-- [ ] Update the link to the contribution guidelines to point to your project
-  - [ ] In [`.github/ISSUE_TEMPLATE/BUG_REPORT.md`](.github/ISSUE_TEMPLATE/BUG_REPORT.md)
-  - [ ] In [`.github/PULL_REQUEST_TEMPLATE.md`](.github/PULL_REQUEST_TEMPLATE.md)
-- [ ] Replace the `<project name>` placeholder with the name of your project
-  - [ ] In [`CONTRIBUTING.md`](CONTRIBUTING.md)
-  - [ ] In [`SECURITY.md`](SECURITY.md)
-- [ ] Add names and contact information for actual project maintainers to [`MAINTAINERS.md`](MAINTAINERS.md)
-- [ ] Delete the content of [`CHANGELOG.md`](CHANGELOG.md). We encourage you to [keep a changelog](https://keepachangelog.com/en/1.0.0/).
-- [ ] Replace the generic content in this file with the relevant details about your project
-- [ ] Delete this section of the README
 
 ## About The Project
 
-Provide some information about what the project is/does.
+WANDS is a Wayfair product search relevance dataset that is published as a companion to the paper from ECIR 2022:
+
+> WANDS: Dataset for Product Search Relevance Assessment  
+> Yan Chen, Shujian Liu, Zheng Liu, Weiyi Sun, Linas Baltrunas and Benjamin Schroeder
+
+The dataset allows objective benchmarking and evaluation of search engines on an E-Commerce dataset. Key features of this dataset includes:
+
+1. 42,994 candidate products
+2. 480 queries
+3. 233,448 (query,product) relevance judgements
+
+Please refer to the paper for more details.
 
 ## Getting Started
 
 To get a local copy up and running follow these simple steps.
 
-### Prerequisites
-
-This is an example of how to list things you need to use the software and how to install them.
-
-- npm
-
-  ```sh
-  npm install npm@latest -g
-  ```
-
 ### Installation
 
-1. Clone the repo
+Clone the repo
 
    ```sh
-   git clone https://github.com/org_name/repo_name.git
+   git clone https://github.com/wayfair/WANDS.git
    ```
 
-2. Install NPM packages
+## Dataset Details
 
-   ```sh
-   npm install
-   ```
+The data is stored in the ```dataset``` folder in three files:
 
-## Usage
+1. ```product.csv``` - Stores all candidate products, columns include:  
+   a. product_id - ID of a product  
+   b. product_name - String of product name  
+   c. product_class - Category which product falls under  
+   d. category_hierarchy - Parent categories of product, delimited by ```/```  
+   e. product_description - String description of product  
+   f. product_features -  ```|``` delimited string of attribute:value pairs which describe the product  
+   g. rating_count - Number of user ratings for product  
+   h. average_rating - Average rating the product received  
+   i. review_count - Number of user reviews for product  
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+2. ```query.csv``` - Stores search queries, columns include:  
+   a. query_id - unique ID for each query  
+   b. query - query string  
+   c. query_class - category to which the query falls under  
 
-_For more examples, please refer to the [Documentation](https://example.com) or the [Wiki](https://github.com/org_name/repo_name/wiki)_
+3. ```label.csv``` - Stores annotated (product,relevance judgement) pairs, columns include  
+   a. id - Unique ID for each annotation  
+   b. query_id - ID of the query this annotation is for  
+   c. product_id - ID of the product this annotation applies to  
+   d. label - Relevance label, one of 'Exact', 'Partial', or 'Irrelevant'  
+
+### Sample Notebook
+
+We have included a sample notebook ```read_dataset.ipynb``` to show you how you can read the data from the three CSV files easily.
+
+### Annotation Guidelines
+
+We released [annotation guidelines](Product%20Search%20Relevance%20Annotation%20Guidelines.pdf) as a supplement to the dataset.
 
 ## Roadmap
 
-See the [open issues](https://github.com/org_name/repo_name/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/wayfair/WANDS/issues) for a list of proposed features (and known issues).
 
 ## Contributing
 
@@ -77,15 +74,24 @@ Contributions are what make the open source community such an amazing place to l
 
 ## License
 
-Distributed under the `<License name>` License. See `LICENSE` for more information.
+Distributed under the `MIT` License. See `LICENSE` for more information.
 
 ## Contact
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email
+For questions or feedback, please reach out to `ecir2022data@gmail.com` or the first author of the referenced paper.
 
-Project Link: [https://github.com/org_name/repo_name](https://github.com/org_name/repo_name)
+Project Link: [https://github.com/wayfair/WANDS](https://github.com/wayfair/WANDS)
 
-## Acknowledgements
+## Citation
 
-This template was adapted from
-[https://github.com/othneildrew/Best-README-Template](https://github.com/othneildrew/Best-README-Template).
+Please cite this paper if you are building on top of or using this dataset:
+
+```text
+@InProceedings{wands,  
+  title = {WANDS: Dataset for Product Search Relevance Assessment},  
+  author = {Chen, Yan and Liu, Shujian and Liu, Zheng and Sun, Weiyi and Baltrunas, Linas and Schroeder, Benjamin},  
+  booktitle = {Proceedings of the 44th European Conference on Information Retrieval},  
+  year = {2022},  
+  numpages = {12}  
+}
+```
